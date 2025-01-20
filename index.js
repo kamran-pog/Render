@@ -3,6 +3,10 @@ const db = require('./db');
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the API! Use /users to fetch user data.');
+});
+
 app.get('/users', async (req, res) => {
   try {
     const result = await db.query('SELECT * FROM users'); // Query to fetch all users
